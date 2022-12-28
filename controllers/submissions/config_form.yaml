@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'xitara.voodooforms::lang.models.submission.label'
+
+# Model Form Field configuration
+form: $/xitara/voodooforms/models/submission/fields.yaml
+
+# Model Class name
+modelClass: Xitara\VoodooForms\Models\Submission
+
+# Default redirect location
+defaultRedirect: xitara/voodooforms/submissions
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: xitara/voodooforms/submissions/update/:id
+    redirectClose: xitara/voodooforms/submissions
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: xitara/voodooforms/submissions
+    redirectClose: xitara/voodooforms/submissions
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

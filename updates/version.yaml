@@ -1,0 +1,6 @@
+'1.0.0':
+    - 'First version of VoodooForms'
+    - create_forms_table.php
+    - create_fields_table.php
+    - create_submissions_table.php
+    - seed_forms_table.php

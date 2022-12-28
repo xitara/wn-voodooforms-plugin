@@ -1,0 +1,15 @@
+/* Bootstrap */
+// @use 'abstracts/bootstrap';
+
+/* Tailwind CSS */
+// @use 'abstracts/tailwindcss';
+
+@use 'partials/default';
+
+/* froala and fixes */
+/* purgecss start ignore */
+@use 'partials/froala';
+
+/* Fonts */
+@use 'abstracts/fonts';
+/* purgecss stop ignore */
