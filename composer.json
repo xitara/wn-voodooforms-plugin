@@ -1,0 +1,23 @@
+{
+    "name": "xitara/wn-voodooforms-plugin",
+    "type": "winter-plugin",
+    "description": "Dynamic Content Winter CMS plugin",
+    "keywords": ["winter", "cms", "voodooforms", "plugin"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Manuel Burghammer",
+            "email": "manuel.burghammer@xitara.com",
+            "role": "Author"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

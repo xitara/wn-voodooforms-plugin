@@ -38,6 +38,7 @@ FILE=$(cat package.json | jq -r .name)
 
 # target path
 TARGET="$(pwd)/.."
+VERSION=$(cat package.json | jq -r .version)
 
 # ftp for deploy. default port ist 21 if none is given
 FTP_HOST=""
