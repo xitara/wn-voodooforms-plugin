@@ -1,0 +1,11 @@
+<section
+    class="
+        {% if field.options.field_class != '' %}
+            {{ field.options.field_class }}
+        {% else %}
+            {{ settings.field_class }}
+        {% endif %}
+    "
+>
+    {{ field.description|raw }}
+</section>

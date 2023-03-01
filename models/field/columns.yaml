@@ -1,19 +1,40 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
-    id:
-        label: 'xitara.voodooforms::lang.models.general.id'
+    name:
+        label: xitara.voodooforms::lang.models.field.name.label
+        type: text
         searchable: true
+        sortable: false
+    code:
+        label: xitara.voodooforms::lang.models.field.code.label
+        type: text
+        searchable: true
+        sortable: false
+    type:
+        label: xitara.voodooforms::lang.models.field.type.label
+        type: text
+        searchable: true
+        sortable: false
+    is_required:
+        label: xitara.voodooforms::lang.models.field.required.label
+        type: switch
+        sortable: false
     created_at:
-        label: 'xitara.voodooforms::lang.models.general.created_at'
+        label: xitara.voodooforms::lang.models.all.created_at.label
         type: datetime
-        searchable: true
-        sortable: true
-        invisible: true
+        width: 10%
+        align: center
+        sortable: false
     updated_at:
-        label: 'xitara.voodooforms::lang.models.general.updated_at'
+        label: xitara.voodooforms::lang.models.all.updated_at.label
         type: datetime
-        searchable: true
-        sortable: true
+        width: 10%
+        align: center
+        sortable: false
+    order:
+        label: xitara.voodooforms::lang.models.all.sort_order.label
+        type: partial
+        path: $/xitara/voodooforms/controllers/fields/_order.php
+        width: 5%
+        align: center
+        sortable: false
+        clickable: false

@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: 'xitara.voodooforms::lang.models.form.label'
+name: 'xitara.voodooforms::lang.controller.form'
 
 # Model Form Field configuration
 form: $/xitara/voodooforms/models/form/fields.yaml

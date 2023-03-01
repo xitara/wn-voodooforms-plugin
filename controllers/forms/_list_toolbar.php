@@ -2,7 +2,7 @@
     <a
         href="<?= Backend::url('xitara/voodooforms/forms/create') ?>"
         class="btn btn-primary wn-icon-plus">
-        <?= e(trans('backend::lang.form.create_title', ['name' => trans('xitara.voodooforms::lang.models.form.label')])); ?>
+        <?= e(trans('xitara.voodooforms::lang.controller.new_form')); ?>
     </a>
 
     <button

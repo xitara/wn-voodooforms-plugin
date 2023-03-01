@@ -1,0 +1,302 @@
+tabs:
+    fields:
+        # Caching
+        enable_caching:
+            label: xitara.voodooforms::lang.models.settings.enable_caching.label
+            comment: xitara.voodooforms::lang.models.settings.enable_caching.comment
+            tab: xitara.voodooforms::lang.tabs.caching
+            span: left
+            type: switch
+        cache_lifetime:
+            label: xitara.voodooforms::lang.models.settings.cache_lifetime.label
+            comment: xitara.voodooforms::lang.models.settings.cache_lifetime.comment
+            tab: xitara.voodooforms::lang.tabs.caching
+            span: right
+            type: text
+            trigger:
+                action: enable
+                field: enable_caching
+                condition: checked
+
+        # Action
+        on_success:
+            label: xitara.voodooforms::lang.models.settings.on_success.label
+            comment: xitara.voodooforms::lang.models.settings.on_success.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: left
+            type: dropdown
+            options:
+                hide: xitara.voodooforms::lang.models.settings.on_success.options.hide
+                clear: xitara.voodooforms::lang.models.settings.on_success.options.clear
+                redirect: xitara.voodooforms::lang.models.settings.on_success.options.redirect
+        on_success_message:
+            label: xitara.voodooforms::lang.models.settings.on_success_message.label
+            comment: xitara.voodooforms::lang.models.settings.on_success_message.comment
+            placeholder: xitara.voodooforms::lang.models.settings.on_success_message.placeholder
+            tab: xitara.voodooforms::lang.tabs.action
+            span: left
+            type: text
+        on_success_redirect:
+            label: xitara.voodooforms::lang.models.settings.on_success_redirect.label
+            comment: xitara.voodooforms::lang.models.settings.on_success_redirect.comment
+            placeholder: xitara.voodooforms::lang.models.settings.on_success_redirect.placeholder
+            tab: xitara.voodooforms::lang.tabs.action
+            span: left
+            type: text
+
+        # Anti-spam
+        _recaptcha:
+            label: xitara.voodooforms::lang.sections.recaptcha.label
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: full
+            type: section
+        enable_recaptcha:
+            label: xitara.voodooforms::lang.models.settings.enable_recaptcha.label
+            comment: xitara.voodooforms::lang.models.settings.enable_recaptcha.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: full
+            type: switch
+        recaptcha_public_key:
+            label: xitara.voodooforms::lang.models.settings.recaptcha_public_key.label
+            comment: xitara.voodooforms::lang.models.settings.recaptcha_public_key.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: enable_recaptcha
+                condition: checked
+        recaptcha_secret_key:
+            label: xitara.voodooforms::lang.models.settings.recaptcha_secret_key.label
+            comment: xitara.voodooforms::lang.models.settings.recaptcha_secret_key.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: right
+            type: text
+            trigger:
+                action: enable
+                field: enable_recaptcha
+                condition: checked
+        _ip_restriction:
+            label: xitara.voodooforms::lang.sections.ip_restriction.label
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: section
+        enable_ip_restriction:
+            label: xitara.voodooforms::lang.models.settings.enable_ip_restriction.label
+            comment: xitara.voodooforms::lang.models.settings.enable_ip_restriction.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: full
+            type: switch
+        max_requests_per_day:
+            label: xitara.voodooforms::lang.models.settings.max_requests_per_day.label
+            comment: xitara.voodooforms::lang.models.settings.max_requests_per_day.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: left
+            type: number
+            placeholder: 'e.g. 5'
+            trigger:
+                action: enable
+                field: enable_ip_restriction
+                condition: checked
+        throttle_message:
+            label: xitara.voodooforms::lang.models.settings.throttle_message.label
+            comment: xitara.voodooforms::lang.models.settings.throttle_message.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: right
+            type: text
+            placeholder: 'Failed to send due to too many requests.'
+            trigger:
+                action: enable
+                field: enable_ip_restriction
+                condition: checked
+
+        # Privacy
+        saves_data:
+            label: xitara.voodooforms::lang.models.settings.saves_data.label
+            comment: xitara.voodooforms::lang.models.settings.saves_data.comment
+            tab: xitara.voodooforms::lang.tabs.privacy
+            span: left
+            default: 1
+            type: switch
+        store_ips:
+            label: xitara.voodooforms::lang.models.settings.store_ips.label
+            comment: xitara.voodooforms::lang.models.settings.store_ips.comment
+            tab: xitara.voodooforms::lang.tabs.privacy
+            type: switch
+            span: left
+
+        # Emailing
+        queue_emails:
+            label: xitara.voodooforms::lang.models.settings.queue_emails.label
+            comment: xitara.voodooforms::lang.models.settings.queue_emails.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: switch
+        auto_reply:
+            label: xitara.voodooforms::lang.models.settings.auto_reply.label
+            comment: xitara.voodooforms::lang.models.settings.auto_reply.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: switch
+        _notifications:
+            label: xitara.voodooforms::lang.sections.notifications.label
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: full
+            type: section
+        send_notifications:
+            label: xitara.voodooforms::lang.models.settings.send_notifications.label
+            comment: xitara.voodooforms::lang.models.settings.send_notifications.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: switch
+        notification_recipients:
+            label: xitara.voodooforms::lang.models.settings.notification_recipients.label
+            comment: xitara.voodooforms::lang.models.settings.notification_recipients.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: send_notifications
+                condition: checked
+
+        # Styling
+        _styleSection:
+            label: xitara.voodooforms::lang.sections.styling.label
+            comment: xitara.voodooforms::lang.sections.styling.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: section
+        form_class:
+            label: xitara.voodooforms::lang.models.settings.form_class.label
+            comment: xitara.voodooforms::lang.models.settings.form_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: voodoo-form
+        group_class:
+            label: xitara.voodooforms::lang.models.settings.group_class.label
+            comment: xitara.voodooforms::lang.models.settings.group_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: field-group
+        field_class:
+            label: xitara.voodooforms::lang.models.settings.field_class.label
+            comment: xitara.voodooforms::lang.models.settings.field_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: field
+        label_class:
+            label: xitara.voodooforms::lang.models.settings.label_class.label
+            comment: xitara.voodooforms::lang.models.settings.label_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: field-label
+        legend_class:
+            label: xitara.voodooforms::lang.models.settings.legend_class.label
+            comment: xitara.voodooforms::lang.models.settings.legend_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: field-legend
+        description_class:
+            label: xitara.voodooforms::lang.models.settings.description_class.label
+            comment: xitara.voodooforms::lang.models.settings.description_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: field-description
+        _validation:
+            label: xitara.voodooforms::lang.sections.validation.label
+            comment: xitara.voodooforms::lang.sections.validation.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: section
+        field_error_class:
+            label: xitara.voodooforms::lang.models.settings.field_error_class.label
+            comment: xitara.voodooforms::lang.models.settings.field_error_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: is-invalid
+        field_success_class:
+            label: xitara.voodooforms::lang.models.settings.field_success_class.label
+            comment: xitara.voodooforms::lang.models.settings.field_success_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: is-valid
+        label_error_class:
+            label: xitara.voodooforms::lang.models.settings.label_error_class.label
+            comment: xitara.voodooforms::lang.models.settings.label_error_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: invalid-feedback
+        label_success_class:
+            label: xitara.voodooforms::lang.models.settings.label_success_class.label
+            comment: xitara.voodooforms::lang.models.settings.label_success_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: valid-feedback
+        form_error_class:
+            label: xitara.voodooforms::lang.models.settings.form_error_class.label
+            comment: xitara.voodooforms::lang.models.settings.form_error_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: invalid-feedback
+        form_success_class:
+            label: xitara.voodooforms::lang.models.settings.form_success_class.label
+            comment: xitara.voodooforms::lang.models.settings.form_success_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: valid-feedback
+        _buttons:
+            label: xitara.voodooforms::lang.sections.buttons.label
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: section
+        submit_class:
+            label: xitara.voodooforms::lang.models.settings.submit_class.label
+            comment: xitara.voodooforms::lang.models.settings.submit_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: btn btn-primary
+        submit_text:
+            label: xitara.voodooforms::lang.models.settings.submit_text.label
+            comment: xitara.voodooforms::lang.models.settings.submit_text.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: Submit
+        enable_cancel:
+            label: xitara.voodooforms::lang.models.settings.enable_cancel.label
+            comment: xitara.voodooforms::lang.models.settings.enable_cancel.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: switch
+            span: full
+        cancel_class:
+            label: xitara.voodooforms::lang.models.settings.cancel_class.label
+            comment: xitara.voodooforms::lang.models.settings.cancel_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            default: btn btn-danger
+            trigger:
+                action: enable
+                field: enable_cancel
+                condition: checked
+        cancel_text:
+            label: xitara.voodooforms::lang.models.settings.cancel_text.label
+            comment: xitara.voodooforms::lang.models.settings.cancel_text.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: right
+            default: Cancel
+            trigger:
+                action: enable
+                field: enable_cancel
+                condition: checked

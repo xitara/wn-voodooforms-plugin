@@ -1,0 +1,29 @@
+<input
+    id="{{ field.code }}"
+    name="{{ group }}"
+    type="radio"
+    {% if field.is_required == 1 %}
+        required="required"
+    {% endif %}
+    {% for attribute in field.html_attributes %}
+        {{ attribute.name }}="{{ attribute.value }}"
+    {% endfor %}
+    class="
+        {% if field.options.field_class != '' %}
+            {{ field.options.field_class }}
+        {% else %}
+            {{ settings.field_class }}
+        {% endif %}
+    "
+    value="{{ (field.default != '') ? field.default : 'true' }}"
+>
+<label
+    for="{{ field.code }}"
+    class="
+        {% if field.options.label_class != '' %}
+            {{ field.options.label_class }}
+        {% else %}
+            {{ settings.label_class }}
+        {% endif %}
+    "
+>{{ field.name }}</label>

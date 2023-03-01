@@ -1,0 +1,58 @@
+{% if fields|length > 0 %}
+    <form action="test" class="{{ settings.form_class }} {{ settings.form_class }}-{{ __SELF__.alias }}">
+        {% for key, field in fields %}
+            <fieldset
+                class="
+                    {% if field['options'] is defined and field.options.group_class != '' %}
+                        {{ field.options.group_class }}
+                    {% elseif field[0] is defined and field.0.options.group_class != '' %}
+                        {{ field.0.options.group_class }}
+                    {% else %}
+                        {{ settings.group_class }}
+                    {% endif %}
+                    {{ (field is iterable) ? 'type-group' }}
+                "
+            >
+                {% if field is not iterable %}
+                    {# ================================================ <br> #}
+                    {# Type: {{ field.type }} <br> #}
+                    {# ================================================ <br><br> #}
+                    {% if field.type != 'plaintext' %}
+                        <label
+                            for="{{ field.code }}"
+                            class="
+                                {% if field.options.label_class != '' %}
+                                    {{ field.options.label_class }}
+                                {% else %}
+                                    {{ settings.label_class }}
+                                {% endif %}
+                            "
+                        >{{ field.name }}</label>
+                    {% endif %}
+                    {% partial __SELF__ ~ '::' ~ field.type field=field %}
+                {% else %}
+                    {# ================================================ <br> #}
+                    {# Type: {{ field.0.type }} <br> #}
+                    {# Group: {{ key }} <br> #}
+                    {# ================================================ <br><br> #}
+                    {% if field.0.options.is_show_description == 1 and field.0.description != '' %}
+                        <legend
+                            class="
+                                {% if field.0.options.legend_class != '' %}
+                                    {{ field.0.options.legend_class }}
+                                {% else %}
+                                    {{ settings.legend_class }}
+                                {% endif %}
+                            "
+                        >{{ field.0.description|strip_html }}</legend>
+                    {% endif %}
+
+                    {% for item in field %}
+                        {% partial __SELF__ ~ '::' ~ item.type group=key field=item %}
+                    {% endfor %}
+                {% endif %}
+            </fieldset>
+            <hr>
+        {% endfor %}
+    </form>
+{% endif %}

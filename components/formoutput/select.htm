@@ -1,0 +1,50 @@
+<select
+    id="{{ field.code }}"
+    name="{{ field.code }}"
+    {% if field.options.is_multiple == 1 %}
+        multiple="multiple"
+    {% endif %}
+    {% for attribute in field.html_attributes %}
+        {{ attribute.name }}="{{ attribute.value }}"
+    {% endfor %}
+    class="
+        {% if field.options.field_class != '' %}
+            {{ field.options.field_class }}
+        {% else %}
+            {{ settings.field_class }}
+        {% endif %}
+    "
+>
+    {% for option in field.options.field_options %}
+        {% if option.is_optgroup == 0 %}
+            <option
+                value="{{ option.option_code }}"
+            >{{ option.option_label }}</option>
+        {% else %}
+            <optgroup label="{{ option.option_label }}">
+                {% for item in option.options %}
+                    <option
+                        value="{{ item.option_code }}"
+                        {% if field.default == item.option_code %}
+                            selected="selected"
+                        {% endif %}
+                    >{{ item.option_label }}</option>
+                {% endfor %}
+            </optgroup>
+        {% endif %}
+    {% endfor %}
+</select>
+
+{% if field.options.is_show_description == 1 %}
+    <aside
+        class="
+            {% if field.options.description_class != '' %}
+                {{ field.options.description_class }}
+            {% else %}
+                {{ settings.description_class }}
+            {% endif %}
+        "
+    >
+        {{ field.description|raw }}
+    </aside>
+{% endif %}

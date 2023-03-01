@@ -1,7 +1,13 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('xitara/voodooforms/forms') ?>"><?= e(trans('xitara.voodooforms::lang.models.form.label_plural')); ?></a></li>
-        <li><?= e($this->pageTitle) ?></li>
+        <li>
+            <a href="<?= Backend::url('xitara/voodooforms/forms') ?>">
+                <?= e(trans('xitara.voodooforms::lang.controller.forms')); ?>
+            </a>
+        </li>
+        <li>
+            <?= e(trans('xitara.voodooforms::lang.controller.new_form')); ?>
+        </li>
     </ul>
 <?php Block::endPut() ?>
 
@@ -19,7 +25,7 @@
                     type="button"
                     data-request="onSave"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="<?= e(trans('backend::lang.form.creating_name', ['name' => trans('xitara.voodooforms::lang.models.form.label')])); ?>"
+                    data-load-indicator="<?= e(trans('backend::lang.form.creating_name', ['name' => trans('xitara.voodooforms::lang.controller.form')])); ?>"
                     class="btn btn-primary">
                     <?= e(trans('backend::lang.form.create')); ?>
                 </button>
@@ -28,7 +34,7 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="<?= e(trans('backend::lang.form.creating_name', ['name' => trans('xitara.voodooforms::lang.models.form.label')])); ?>"
+                    data-load-indicator="<?= e(trans('backend::lang.form.creating_name', ['name' => trans('xitara.voodooforms::lang.controller.form')])); ?>"
                     class="btn btn-default">
                     <?= e(trans('backend::lang.form.create_and_close')); ?>
                 </button>

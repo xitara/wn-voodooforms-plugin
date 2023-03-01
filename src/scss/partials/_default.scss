@@ -1,4 +1,77 @@
-@use '../abstracts/bootstrap';
-@use '../abstracts/variables' as v;
-@use '../abstracts/colors' as c;
-@use '../abstracts/mixins' as m;
+// @use '../abstracts/bootstrap';
+// @use '../abstracts/variables' as v;
+// @use '../abstracts/colors' as c;
+// @use '../abstracts/mixins' as m;
+
+.voodoo-form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50rem;
+
+    p {
+        margin-bottom: 0.25rem;
+    }
+
+    .field-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &.type-group {
+            label {
+                margin-right: 1rem;
+            }
+        }
+
+        &:has(select[multiple]),
+        &:has(textarea) {
+            .field-label {
+                align-self: flex-start;
+            }
+        }
+    }
+
+    .field-label {
+        flex: 0 0 30%;
+    }
+
+    .field-legend {
+        flex: 1 1 100%;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    input {
+        flex: 0 0 70%;
+        width: 100%;
+
+        &[type="radio"],
+        &[type="checkbox"] {
+            flex: 0 0 auto;
+            width: auto;
+            margin-right: 0.5rem;
+
+            + label {
+                flex: 0 0 auto;
+            }
+        }
+
+    }
+
+    select {
+        flex: 0 0 70%;
+
+        &[multiple] {
+            align-self: flex-start
+        }
+    }
+
+    textarea {
+        flex: 0 0 70%;
+    }
+
+    aside {
+        margin-top: 0.75rem;
+        font-size: 0.75rem;
+    }
+}

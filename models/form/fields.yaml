@@ -1,8 +1,566 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: 'xitara.voodooforms::lang.models.general.id'
-        disabled: true
+    title:
+        label: xitara.voodooforms::lang.models.form.title.label
+        comment: xitara.voodooforms::lang.models.form.title.comment
+        span: left
+        required: 1
+        type: text
+    description:
+        label: xitara.voodooforms::lang.models.form.description.label
+        comment: xitara.voodooforms::lang.models.form.description.comment
+        span: right
+        type: textarea
+        size: small
+    code:
+        label: xitara.voodooforms::lang.models.form.code.label
+        comment: xitara.voodooforms::lang.models.form.code.comment
+        span: left
+        required: 1
+        type: text
+        preset:
+            field: title
+            type: slug
+
+tabs:
+    fields:
+        # Fields
+        fields:
+            label: xitara.voodooforms::lang.tabs.fields
+            span: full
+            type: partial
+            tab: xitara.voodooforms::lang.tabs.fields
+            context:
+                - preview
+                - update
+
+        # Caching
+        enable_caching:
+            label: xitara.voodooforms::lang.models.settings.enable_caching.label
+            comment: xitara.voodooforms::lang.models.settings.enable_caching.comment
+            tab: xitara.voodooforms::lang.tabs.caching
+            span: left
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_enable_caching]
+                condition: checked
+        options[override_enable_caching]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.caching
+            span: right
+            type: checkbox
+        cache_lifetime:
+            label: xitara.voodooforms::lang.models.settings.cache_lifetime.label
+            comment: xitara.voodooforms::lang.models.settings.cache_lifetime.comment
+            tab: xitara.voodooforms::lang.tabs.caching
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: options[override_cache_lifetime]
+                condition: checked
+        options[override_cache_lifetime]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.caching
+            span: right
+            type: checkbox
+
+        # Action
+        options[on_success]:
+            label: xitara.voodooforms::lang.models.settings.on_success.label
+            comment: xitara.voodooforms::lang.models.settings.on_success.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: left
+            type: dropdown
+            options:
+                hide: xitara.voodooforms::lang.models.settings.on_success.options.hide
+                clear: xitara.voodooforms::lang.models.settings.on_success.options.clear
+                redirect: xitara.voodooforms::lang.models.settings.on_success.options.redirect
+            trigger:
+                action: enable
+                field: options[override_on_success]
+                condition: checked
+        options[override_on_success]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: right
+            type: checkbox
+        options[on_success_message]:
+            label: xitara.voodooforms::lang.models.settings.on_success_message.label
+            comment: xitara.voodooforms::lang.models.settings.on_success_message.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: options[override_on_success_message]
+                condition: checked
+        options[override_on_success_message]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: right
+            type: checkbox
+        options[on_success_redirect]:
+            label: xitara.voodooforms::lang.models.settings.on_success_redirect.label
+            comment: xitara.voodooforms::lang.models.settings.on_success_redirect.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: options[override_on_success_redirect]
+                condition: checked
+        options[override_on_success_redirect]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.action
+            span: right
+            type: checkbox
+
+        # Styling
+        options[form_class]:
+            label: xitara.voodooforms::lang.models.settings.form_class.label
+            comment: xitara.voodooforms::lang.models.settings.form_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: form-control
+            trigger:
+                action: enable
+                field: options[override_form_class]
+                condition: checked
+        options[override_form_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[field_class]:
+            label: xitara.voodooforms::lang.models.settings.field_class.label
+            comment: xitara.voodooforms::lang.models.settings.field_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: form-control
+            trigger:
+                action: enable
+                field: options[override_field_class]
+                condition: checked
+        options[override_field_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[row_class]:
+            label: xitara.voodooforms::lang.models.settings.row_class.label
+            comment: xitara.voodooforms::lang.models.settings.row_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: row
+            trigger:
+                action: enable
+                field: options[override_row_class]
+                condition: checked
+        options[override_row_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[group_class]:
+            label: xitara.voodooforms::lang.models.settings.group_class.label
+            comment: xitara.voodooforms::lang.models.settings.group_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: form-group col-12
+            trigger:
+                action: enable
+                field: options[override_group_class]
+                condition: checked
+        options[override_group_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[label_class]:
+            label: xitara.voodooforms::lang.models.settings.label_class.label
+            comment: xitara.voodooforms::lang.models.settings.label_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: form-label
+            trigger:
+                action: enable
+                field: options[override_label_class]
+                condition: checked
+        options[override_label_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[submit_class]:
+            label: xitara.voodooforms::lang.models.settings.submit_class.label
+            comment: xitara.voodooforms::lang.models.settings.submit_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: btn btn-primary
+            trigger:
+                action: enable
+                field: options[override_submit_class]
+                condition: checked
+        options[override_submit_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[submit_text]:
+            label: xitara.voodooforms::lang.models.settings.submit_text.label
+            comment: xitara.voodooforms::lang.models.settings.submit_text.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: Submit
+            trigger:
+                action: enable
+                field: options[override_submit_text]
+                condition: checked
+        options[override_submit_text]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[enable_cancel]:
+            label: xitara.voodooforms::lang.models.settings.enable_cancel.label
+            comment: xitara.voodooforms::lang.models.settings.enable_cancel.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: switch
+            span: left
+            trigger:
+                action: enable
+                field: options[override_enable_cancel]
+                condition: checked
+        options[override_enable_cancel]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[cancel_class]:
+            label: xitara.voodooforms::lang.models.settings.cancel_class.label
+            comment: xitara.voodooforms::lang.models.settings.cancel_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: btn btn-danger
+            trigger:
+                action: enable
+                field: options[override_cancel_class]
+                condition: checked
+        options[override_cancel_class]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+        options[cancel_text]:
+            label: xitara.voodooforms::lang.models.settings.cancel_text.label
+            comment: xitara.voodooforms::lang.models.settings.cancel_text.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: left
+            placeholder: Cancel
+            trigger:
+                action: enable
+                field: options[override_cancel_text]
+                condition: checked
+        options[override_cancel_text]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: checkbox
+            span: right
+
+        # Privacy
+        options[saves_data]:
+            label: xitara.voodooforms::lang.models.settings.saves_data.label
+            comment: xitara.voodooforms::lang.models.settings.saves_data.comment
+            tab: xitara.voodooforms::lang.tabs.privacy
+            span: left
+            placeholder: 1
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_saves_data]
+                condition: checked
+        options[override_saves_data]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.privacy
+            type: checkbox
+            span: right
+
+        # Anti-spam
+        options[_recaptcha]:
+            label: xitara.voodooforms::lang.sections.recaptcha.label
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: section
+        options[enable_recaptcha]:
+            label: xitara.voodooforms::lang.models.settings.enable_recaptcha.label
+            comment: xitara.voodooforms::lang.models.settings.enable_recaptcha.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: left
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_enable_recaptcha]
+                condition: checked
+        options[override_enable_recaptcha]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: checkbox
+            span: right
+        options[_ip_restriction]:
+            label: xitara.voodooforms::lang.sections.ip_restriction.label
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: section
+        options[enable_ip_restriction]:
+            label: xitara.voodooforms::lang.models.settings.enable_ip_restriction.label
+            comment: xitara.voodooforms::lang.models.settings.enable_ip_restriction.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: left
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_enable_ip_restriction]
+                condition: checked
+        options[override_enable_ip_restriction]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: checkbox
+            span: right
+        options[max_requests_per_day]:
+            label: xitara.voodooforms::lang.models.settings.max_requests_per_day.label
+            comment: xitara.voodooforms::lang.models.settings.max_requests_per_day.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: left
+            type: number
+            placeholder: 'e.g. 5'
+            trigger:
+                action: enable
+                field: options[override_max_requests_per_day]
+                condition: checked
+        options[override_max_requests_per_day]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: checkbox
+            span: right
+        options[throttle_message]:
+            label: xitara.voodooforms::lang.models.settings.throttle_message.label
+            comment: xitara.voodooforms::lang.models.settings.throttle_message.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            span: left
+            type: text
+            placeholder: 'Failed to send due to too many requests.'
+            trigger:
+                action: enable
+                field: options[override_throttle_message]
+                condition: checked
+        options[override_throttle_message]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.antispam
+            type: checkbox
+            span: right
+
+        # Emailing
+        options[_notifications]:
+            label: xitara.voodooforms::lang.sections.notifications.label
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: section
+        options[send_notifications]:
+            label: xitara.voodooforms::lang.models.settings.send_notifications.label
+            comment: xitara.voodooforms::lang.models.settings.send_notifications.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_send_notifications]
+                condition: checked
+        options[override_send_notifications]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[notification_template]:
+            label: xitara.voodooforms::lang.models.settings.notification_template.label
+            comment: xitara.voodooforms::lang.models.settings.notification_template.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: options[override_notification_template]
+                condition: checked
+        options[override_notification_template]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[notification_recipients]:
+            label: xitara.voodooforms::lang.models.settings.notification_recipients.label
+            comment: xitara.voodooforms::lang.models.settings.notification_recipients.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: options[override_notification_recipients]
+                condition: checked
+        options[override_notification_recipients]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[notif_replyto]:
+            label: xitara.voodooforms::lang.models.settings.notif_replyto.label
+            comment: xitara.voodooforms::lang.models.settings.notif_replyto.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_notif_replyto]
+                condition: checked
+        options[override_notif_replyto]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[notif_replyto_email_field_id]:
+            label: xitara.voodooforms::lang.models.settings.notif_replyto_email_field_id.label
+            comment: xitara.voodooforms::lang.models.settings.notif_replyto_email_field_id.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            showSearch: true
+            span: left
+            type: dropdown
+            options: getNotifReplytoNameFieldIdOptions
+            trigger:
+                action: enable
+                field: options[override_notif_replyto_email_field_id]
+                condition: checked
+        options[override_notif_replyto_email_field_id]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[notif_replyto_name_field_id]:
+            label: xitara.voodooforms::lang.models.settings.notif_replyto_name_field_id.label
+            comment: xitara.voodooforms::lang.models.settings.notif_replyto_name_field_id.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            showSearch: true
+            span: left
+            type: dropdown
+            options: getNotifReplytoNameFieldIdOptions
+            trigger:
+                action: enable
+                field: options[override_notif_replyto_name_field_id]
+                condition: checked
+        options[override_notif_replyto_name_field_id]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[_autoReply]:
+            label: xitara.voodooforms::lang.sections.auto_reply.label
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: section
+        options[auto_reply]:
+            label: xitara.voodooforms::lang.models.settings.auto_reply.label
+            comment: xitara.voodooforms::lang.models.settings.auto_reply.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: switch
+            trigger:
+                action: enable
+                field: options[override_auto_reply]
+                condition: checked
+        options[override_auto_reply]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[auto_reply_email_field_id]:
+            label: xitara.voodooforms::lang.models.settings.auto_reply_email_field_id.label
+            comment: xitara.voodooforms::lang.models.settings.auto_reply_email_field_id.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            showSearch: true
+            span: left
+            type: dropdown
+            options: getAutoReplyEmailFieldIdOptions
+            trigger:
+                action: enable
+                field: options[override_auto_reply_email_field_id]
+                condition: checked
+        options[override_auto_reply_email_field_id]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[auto_reply_name_field_id]:
+            label: xitara.voodooforms::lang.models.settings.auto_reply_name_field_id.label
+            comment: xitara.voodooforms::lang.models.settings.auto_reply_name_field_id.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            showSearch: true
+            span: left
+            type: dropdown
+            options: getAutoReplyNameFieldIdOptions
+            trigger:
+                action: enable
+                field: options[override_auto_reply_name_field_id]
+                condition: checked
+        options[override_auto_reply_name_field_id]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right
+        options[auto_reply_template]:
+            label: xitara.voodooforms::lang.models.settings.auto_reply_template.label
+            comment: xitara.voodooforms::lang.models.settings.auto_reply_template.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            span: left
+            type: text
+            trigger:
+                action: enable
+                field: options[override_auto_reply_template]
+                condition: checked
+        options[override_auto_reply_template]:
+            label: xitara.voodooforms::lang.models.all.override.label
+            comment: xitara.voodooforms::lang.models.all.override.comment
+            tab: xitara.voodooforms::lang.tabs.emailing
+            type: checkbox
+            span: right

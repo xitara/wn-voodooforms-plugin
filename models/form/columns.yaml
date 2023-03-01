@@ -3,17 +3,31 @@
 # ===================================
 
 columns:
-    id:
-        label: 'xitara.voodooforms::lang.models.general.id'
-        searchable: true
-    created_at:
-        label: 'xitara.voodooforms::lang.models.general.created_at'
-        type: datetime
+    title:
+        label: xitara.voodooforms::lang.models.form.title.label
+        type: text
         searchable: true
         sortable: true
-        invisible: true
-    updated_at:
-        label: 'xitara.voodooforms::lang.models.general.updated_at'
+    code:
+        label: xitara.voodooforms::lang.models.form.code.label
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: xitara.voodooforms::lang.models.form.description.label
+        type: text
+        searchable: true
+    created_at:
+        label: 'xitara.voodooforms::lang.models.all.created_at'
         type: datetime
+        align: center
+        width: 10%
+        searchable: true
+        sortable: true
+    updated_at:
+        label: 'xitara.voodooforms::lang.models.all.updated_at'
+        type: datetime
+        align: center
+        width: 10%
         searchable: true
         sortable: true

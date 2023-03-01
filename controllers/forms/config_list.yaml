@@ -9,7 +9,7 @@ list: $/xitara/voodooforms/models/form/columns.yaml
 modelClass: Xitara\VoodooForms\Models\Form
 
 # List Title
-title: 'xitara.voodooforms::lang.models.form.label_plural'
+title: 'xitara.voodooforms::lang.controller.form_plural'
 
 # Link URL for each record
 recordUrl: xitara/voodooforms/forms/update/:id

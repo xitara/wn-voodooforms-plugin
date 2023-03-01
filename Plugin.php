@@ -1,8 +1,13 @@
-<?php namespace Xitara\VoodooForms;
+<?php
 
+namespace Xitara\VoodooForms;
+
+use App;
 use Backend;
-use Backend\Models\UserRole;
+use BackendMenu;
+use Event;
 use System\Classes\PluginBase;
+use System\Classes\PluginManager;
 
 /**
  * VoodooForms Plugin Information File
@@ -27,7 +32,13 @@ class Plugin extends PluginBase
      */
     public function register(): void
     {
-
+        if (PluginManager::instance()->exists('Xitara.Nexus') === true) {
+            BackendMenu::registerContextSidenavPartial(
+                'Xitara.VoodooForms',
+                'voodooforms',
+                '$/xitara/nexus/partials/_sidebar.htm'
+            );
+        }
     }
 
     /**
@@ -35,7 +46,25 @@ class Plugin extends PluginBase
      */
     public function boot(): void
     {
+        /**
+         * Check if we are currently in backend module.
+         */
+        if (!App::runningInBackend()) {
+            return;
+        }
 
+        /**
+         * get sidemenu if nexus-plugin is loaded
+         */
+        if (PluginManager::instance()->exists('Xitara.Nexus') === true) {
+            Event::listen('backend.page.beforeDisplay', function ($controller, $action, $params) {
+                $namespace = (new \ReflectionObject($controller))->getNamespaceName();
+
+                if ($namespace == 'Xitara\VoodooForms\Controllers') {
+                    \Xitara\Nexus\Plugin::getSideMenu('Xitara.VoodooForms', 'voodooforms');
+                }
+            });
+        }
     }
 
     /**
@@ -43,10 +72,14 @@ class Plugin extends PluginBase
      */
     public function registerComponents(): array
     {
-        return []; // Remove this line to activate
-
         return [
-            'Xitara\VoodooForms\Components\MyComponent' => 'myComponent',
+            'Xitara\VoodooForms\Components\FormOutput' => 'formOutput',
+        ];
+    }
+    public function registerPageSnippets(): array
+    {
+        return [
+            'Xitara\VoodooForms\Components\FormOutput' => 'formOutput',
         ];
     }
 
@@ -71,16 +104,69 @@ class Plugin extends PluginBase
      */
     public function registerNavigation(): array
     {
-        return []; // Remove this line to activate
+        $label = 'xitara.voodooforms::lang.plugin.name';
+
+        if (PluginManager::instance()->exists('Xitara.Nexus') === true) {
+            $label .= '::hidden';
+        }
 
         return [
             'voodooforms' => [
-                'label'       => 'xitara.voodooforms::lang.plugin.name',
-                'url'         => Backend::url('xitara/voodooforms/mycontroller'),
-                'icon'        => 'icon-leaf',
+                'label' => $label,
+                'url'         => Backend::url('xitara/voodooforms/forms'),
+                'icon' => 'icon-leaf',
                 'permissions' => ['xitara.voodooforms.*'],
-                'order'       => 500,
+                'order' => 500,
             ],
         ];
+    }
+
+    public static function injectSideMenu()
+    {
+        $i = 0;
+        return [
+            'voodooforms.forms' => [
+                'label' => 'xitara.voodooforms::lang.submenu.forms',
+                'url' => Backend::url('xitara/voodooforms/forms'),
+                'icon' => 'icon-archive',
+                'permissions' => ['xitara.voodooforms.*'],
+                'attributes' => [ // can be extendet if you need, no limitations
+                    'group' => 'xitara.voodooforms::lang.submenu.label',
+                ],
+                'order' => \Xitara\Nexus\Plugin::getMenuOrder('xitara.voodooforms') + $i++,
+            ],
+            'voodooforms.submissions' => [
+                'label' => 'xitara.voodooforms::lang.submenu.submissions',
+                'url' => Backend::url('xitara/voodooforms/submissions'),
+                'icon' => 'icon-archive',
+                'permissions' => ['xitara.voodooforms.*'],
+                'attributes' => [ // can be extendet if you need, no limitations
+                    'group' => 'xitara.voodooforms::lang.submenu.label',
+                ],
+                'order' => \Xitara\Nexus\Plugin::getMenuOrder('xitara.voodooforms') + $i++,
+            ],
+        ];
+    }
+
+    public function registerSettings()
+    {
+        $category = 'xitara.voodooforms::lang.settings.label';
+
+        if (PluginManager::instance()->exists('Xitara.Nexus') === true) {
+            if (($category = \Xitara\Nexus\Models\Settings::get('menu_text')) == '') {
+                $category = 'xitara.nexus::core.settings.name';
+            }
+        }
+
+        return [
+        'settings' => [
+            'category' => $category,
+            'label' => 'xitara.voodooforms::lang.submenu.label',
+            'description' => 'xitara.voodooforms::lang.submenu.description',
+            'icon' => 'icon-wpforms',
+            'class' => 'Xitara\VoodooForms\Models\Settings',
+            'order' => 20,
+        ],
+    ];
     }
 }

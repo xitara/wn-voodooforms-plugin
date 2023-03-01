@@ -1,0 +1,8 @@
+fields:
+    label: Fields
+    manage:
+        form: $/xitara/voodooforms/models/field/fields.yaml
+        list: $/xitara/voodooforms/models/field/columns.yaml
+    view:
+        list: $/xitara/voodooforms/models/field/columns.yaml
+        toolbarButtons: create|delete

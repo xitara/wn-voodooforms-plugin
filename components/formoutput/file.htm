@@ -1,0 +1,37 @@
+<input
+    id="{{ field.code }}"
+    name="{{ field.code }}"
+    type="file"
+    {% if field.is_required == 1 %}
+        required="required"
+    {% endif %}
+    {% if field.options.is_multiple == 1 %}
+        multiple="multiple"
+    {% endif %}
+    {% for attribute in field.html_attributes %}
+        {{ attribute.name }}="{{ attribute.value }}"
+    {% endfor %}
+    class="
+        {% if field.options.field_class != '' %}
+            {{ field.options.field_class }}
+        {% else %}
+            {{ settings.field_class }}
+        {% endif %}
+    "
+    {% if field.default != '' %}
+        value="{{ field.default }}"
+    {% endif %}
+>
+{% if field.options.is_show_description == 1 %}
+    <aside
+        class="
+            {% if field.options.description_class != '' %}
+                {{ field.options.description_class }}
+            {% else %}
+                {{ settings.description_class }}
+            {% endif %}
+        "
+    >
+        {{ field.description|raw }}
+    </aside>
+{% endif %}

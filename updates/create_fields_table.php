@@ -22,22 +22,22 @@ class CreateFieldsTable extends Migration
             $table->string('name');
             $table->string('code', 80);
             $table->string('type');
-            $table->string('description')->nullable()->default(null);
+            $table->mediumtext('description')->default('');
             $table->integer('sort_order')->unsigned()->default(1);
-            $table->boolean('required')->default(0);
-            $table->string('placeholder')->nullable()->default(null);
-            $table->string('validation_rules')->nullable()->default(null);
-            $table->string('validation_message')->nullable()->default(null);
-            $table->string('row_class')->nullable()->default(null);
-            $table->string('group_class')->nullable()->default(null);
-            $table->string('label_class')->nullable()->default(null);
-            $table->string('field_class')->nullable()->default(null);
-            $table->boolean('show_in_email_autoreply')->default(true);
-            $table->boolean('show_in_email_notification')->default(true);
-            $table->text('options')->nullable()->default(null);
-            $table->boolean('show_description')->default(false);
-            $table->text('default')->nullable()->default(null);
-            $table->text('html_attributes')->nullable()->default(null);
+            $table->boolean('is_required')->default(0);
+            $table->string('placeholder')->default('');
+            $table->string('validation_rules')->default('');
+            $table->string('validation_message')->default('');
+            // $table->string('row_class')->nullable();
+            // $table->string('group_class')->nullable();
+            // $table->string('label_class')->nullable();
+            // $table->string('field_class')->nullable();
+            // $table->boolean('show_in_email_autoreply')->default(true);
+            // $table->boolean('show_in_email_notification')->default(true);
+            $table->mediumtext('options');
+            // $table->boolean('show_description')->default(false);
+            $table->text('default')->nullable();
+            $table->text('html_attributes')->nullable();
             $table->timestamps();
 
             // Add indexes

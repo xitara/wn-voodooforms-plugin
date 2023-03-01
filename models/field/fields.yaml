@@ -1,8 +1,245 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
-    id:
-        label: 'xitara.voodooforms::lang.models.general.id'
-        disabled: true
+    name:
+        label: xitara.voodooforms::lang.models.field.name.label
+        comment: xitara.voodooforms::lang.models.field.name.comment
+        span: auto
+        required: 1
+        type: text
+    code:
+        label: xitara.voodooforms::lang.models.field.code.label
+        comment: xitara.voodooforms::lang.models.field.code.comment
+        span: auto
+        required: 1
+        type: text
+        preset:
+            field: name
+            type: slug
+    type:
+        label: xitara.voodooforms::lang.models.field.type.label
+        comment: xitara.voodooforms::lang.models.field.type.comment
+        showSearch: true
+        span: auto
+        required: 1
+        type: dropdown
+    description:
+        label: xitara.voodooforms::lang.models.field.description.label
+        comment: xitara.voodooforms::lang.models.field.description.comment
+        span: auto
+        type: richeditor
+        size: small
+        toolbarButtons: bold,italic,underline
+    placeholder:
+        label: xitara.voodooforms::lang.models.field.placeholder.label
+        comment: xitara.voodooforms::lang.models.field.placeholder.comment
+        span: left
+        type: text
+        trigger:
+            action: show
+            field: type
+            condition: value[email][number][password][search][tel][text][url]
+    default:
+        label: xitara.voodooforms::lang.models.field.default.label
+        comment: xitara.voodooforms::lang.models.field.default.comment
+        span: right
+        type: text
+        trigger:
+            action: hide
+            field: type
+            condition: value[plaintext]
+    options[is_show_description]:
+        type: switch
+        label: xitara.voodooforms::lang.models.field.show_description.label
+        comment: xitara.voodooforms::lang.models.field.show_description.comment
+        span: left
+        trigger:
+            action: hide
+            field: type
+            condition: value[plaintext]
+    is_required:
+        type: switch
+        label: xitara.voodooforms::lang.models.field.required.label
+        comment: xitara.voodooforms::lang.models.field.required.comment
+        span: left
+        trigger:
+            action: hide
+            field: type
+            condition: value[plaintext]
+    options[is_multiple]:
+        type: switch
+        label: xitara.voodooforms::lang.models.field.multiple.label
+        comment: xitara.voodooforms::lang.models.field.multiple.comment
+        span: right
+        trigger:
+            action: show
+            field: type
+            condition: value[file][image][email][select]
+    options[radio_group]:
+        type: text
+        label: xitara.voodooforms::lang.models.field.radio_group.label
+        comment: xitara.voodooforms::lang.models.field.radio_group.comment
+        span: right
+        trigger:
+            action: show
+            field: type
+            condition: value[radio]
+    options[checkbox_group]:
+        type: text
+        label: xitara.voodooforms::lang.models.field.checkbox_group.label
+        comment: xitara.voodooforms::lang.models.field.checkbox_group.comment
+        span: right
+        trigger:
+            action: show
+            field: type
+            condition: value[checkbox]
+tabs:
+    fields:
+        # Validation
+        validation_rules:
+            tab: xitara.voodooforms::lang.tabs.validation
+            label: xitara.voodooforms::lang.models.field.validation_rules.label
+            comment: xitara.voodooforms::lang.models.field.validation_rules.comment
+            span: left
+            placeholder: 'required|string|min:1|max:191'
+            default: ''
+            type: text
+        validation_message:
+            tab: xitara.voodooforms::lang.tabs.validation
+            label: xitara.voodooforms::lang.models.field.validation_message.label
+            comment: xitara.voodooforms::lang.models.field.validation_message.comment
+            span: right
+            placeholder: 'Invalid :attr'
+            type: text
+
+        # Options
+        options[field_options]:
+            tab: xitara.voodooforms::lang.tabs.options
+            label: xitara.voodooforms::lang.models.field.options.label
+            comment: xitara.voodooforms::lang.models.field.options.comment
+            prompt: xitara.voodooforms::lang.models.field.options.prompt
+            type: repeater
+            form:
+                fields:
+                    option_label:
+                        label: xitara.voodooforms::lang.models.field.options.fields.option_label.label
+                        comment: xitara.voodooforms::lang.models.field.options.fields.option_label.comment
+                        span: left
+                        type: text
+                    option_code:
+                        label: xitara.voodooforms::lang.models.field.options.fields.option_code.label
+                        comment: xitara.voodooforms::lang.models.field.options.fields.option_code.comment
+                        span: right
+                        type: text
+                    is_optgroup:
+                        label: xitara.voodooforms::lang.models.field.options.fields.is_optgroup.label
+                        comment: xitara.voodooforms::lang.models.field.options.fields.is_optgroup.comment
+                        span: full
+                        type: checkbox
+                    options:
+                        label: xitara.voodooforms::lang.models.field.options.fields.options.label
+                        comment: xitara.voodooforms::lang.models.field.options.fields.options.comment
+                        placeholder: xitara.voodooforms::lang.models.field.options.fields.options.placeholder
+                        type: repeater
+                        trigger:
+                            action: show
+                            field: is_optgroup
+                            condition: checked
+                        form:
+                            fields:
+                                option_label:
+                                    label: xitara.voodooforms::lang.models.field.options.fields.options.fields.option_label.label
+                                    span: left
+                                    type: text
+                                option_code:
+                                    label: xitara.voodooforms::lang.models.field.options.fields.options.fields.option_code.label
+                                    span: right
+                                    type: text
+
+        # HTML Attributes
+        html_attributes:
+            tab: xitara.voodooforms::lang.tabs.attributes
+            label: xitara.voodooforms::lang.models.field.attributes.label
+            comment: xitara.voodooforms::lang.models.field.attributes.comment
+            prompt: xitara.voodooforms::lang.models.field.attributes.prompt
+            type: repeater
+            form:
+                fields:
+                    name:
+                        label: xitara.voodooforms::lang.models.field.attributes.fields.name.label
+                        comment: xitara.voodooforms::lang.models.field.attributes.fields.name.comment
+                        span: left
+                        type: text
+                    value:
+                        label: xitara.voodooforms::lang.models.field.attributes.fields.value.label
+                        comment: xitara.voodooforms::lang.models.field.attributes.fields.value.comment
+                        span: right
+                        type: text
+
+        # Styling
+        options[group_class]:
+            label: xitara.voodooforms::lang.models.settings.group_class.label
+            comment: xitara.voodooforms::lang.models.settings.group_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: full
+        options[label_class]:
+            label: xitara.voodooforms::lang.models.settings.label_class.label
+            comment: xitara.voodooforms::lang.models.settings.label_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: full
+        options[field_class]:
+            label: xitara.voodooforms::lang.models.settings.field_class.label
+            comment: xitara.voodooforms::lang.models.settings.field_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: full
+        # options[override_field_class]:
+        #     label: xitara.voodooforms::lang.models.all.override.label
+        #     comment: xitara.voodooforms::lang.models.all.override.comment
+        #     tab: xitara.voodooforms::lang.tabs.styling
+        #     span: right
+        #     type: checkbox
+        options[legend_class]:
+            label: xitara.voodooforms::lang.models.settings.legend_class.label
+            comment: xitara.voodooforms::lang.models.settings.legend_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: full
+        options[description_class]:
+            label: xitara.voodooforms::lang.models.settings.description_class.label
+            comment: xitara.voodooforms::lang.models.settings.description_class.comment
+            tab: xitara.voodooforms::lang.tabs.styling
+            type: text
+            span: full
+        # options[override_row_class]:
+        #     label: xitara.voodooforms::lang.models.all.override.label
+        #     comment: xitara.voodooforms::lang.models.all.override.comment
+        #     tab: xitara.voodooforms::lang.tabs.styling
+        #     span: right
+        #     type: checkbox
+        # options[override_group_class]:
+        #     label: xitara.voodooforms::lang.models.all.override.label
+        #     comment: xitara.voodooforms::lang.models.all.override.comment
+        #     tab: xitara.voodooforms::lang.tabs.styling
+        #     span: right
+        #     type: checkbox
+        # options[override_label_class]:
+        #     label: xitara.voodooforms::lang.models.all.override.label
+        #     comment: xitara.voodooforms::lang.models.all.override.comment
+        #     tab: xitara.voodooforms::lang.tabs.styling
+        #     span: right
+        #     type: checkbox
+
+        # Emailing
+        options[show_in_email_autoreply]:
+            tab: xitara.voodooforms::lang.tabs.emailing
+            label: xitara.voodooforms::lang.models.field.show_in_email_autoreply.label
+            comment: xitara.voodooforms::lang.models.field.show_in_email_autoreply.comment
+            span: left
+            type: switch
+        options[show_in_email_notification]:
+            tab: xitara.voodooforms::lang.tabs.emailing
+            label: xitara.voodooforms::lang.models.field.show_in_email_notification.label
+            comment: xitara.voodooforms::lang.models.field.show_in_email_notification.comment
+            span: right
+            type: switch
