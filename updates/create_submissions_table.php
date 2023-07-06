@@ -20,8 +20,9 @@ class CreateSubmissionsTable extends Migration
             $table->increments('id');
             $table->integer('form_id')->unsigned();
             $table->string('ip', 40)->nullable();
-            $table->string('url');
-            $table->text('data');
+            $table->string('url')->nullable();
+            $table->mediumtext('data')->nullable();
+            $table->mediumtext('attachments')->nullable();
             $table->timestamps();
 
             // Add indexes

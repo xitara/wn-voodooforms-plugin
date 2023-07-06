@@ -8,8 +8,8 @@ module.exports = {
     context: paths.src,
     entry: {
         app: `./js/app.js`,
-        print: `./scss/print.scss`,
-        breakpoints: `./scss/breakpoints.scss`,
+        // print: `./scss/print.scss`,
+        // breakpoints: `./scss/breakpoints.scss`,
     },
     output: {
         filename: `assets/js/[name].js`,

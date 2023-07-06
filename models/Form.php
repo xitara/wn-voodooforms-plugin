@@ -346,56 +346,56 @@ class Form extends Model
      *
      * @return bool
      */
-    public function recaptchaEnabled()
-    {
-        if ($this->override_enable_recaptcha) {
-            return (bool) $this->enable_recaptcha;
-        }
+    // public function recaptchaEnabled()
+    // {
+    //     if ($this->override_enable_recaptcha) {
+    //         return (bool) $this->enable_recaptcha;
+    //     }
 
-        return (bool) Settings::get('enable_recaptcha', false);
-    }
+    //     return (bool) Settings::get('enable_recaptcha', false);
+    // }
 
     /**
      * Determine if IP restriction is enabled for form
      *
      * @return bool
      */
-    public function hasIpRestriction()
-    {
-        if ($this->override_enable_ip_restriction) {
-            return (bool) $this->enable_ip_restriction;
-        }
+    // public function hasIpRestriction()
+    // {
+    //     if ($this->override_enable_ip_restriction) {
+    //         return (bool) $this->enable_ip_restriction;
+    //     }
 
-        return (bool) Settings::get('enable_ip_restriction', false);
-    }
+    //     return (bool) Settings::get('enable_ip_restriction', false);
+    // }
 
     /**
      * Retrieve max amount of requests per day (min 1)
      *
      * @return int
      */
-    public function maxRequestsPerDay()
-    {
-        if ($this->override_max_requests_per_day) {
-            return max((int) $this->max_requests_per_day, 1);
-        }
+    // public function maxRequestsPerDay()
+    // {
+    //     if ($this->override_max_requests_per_day) {
+    //         return max((int) $this->max_requests_per_day, 1);
+    //     }
 
-        return max((int) Settings::get('max_requests_per_day', 5), 1);
-    }
+    //     return max((int) Settings::get('max_requests_per_day', 5), 1);
+    // }
 
     /**
      * Retrieve the forms throttle message
      *
      * @return string
      */
-    public function throttleMessage()
-    {
-        if ($this->override_throttle_message) {
-            return (string) $this->throttle_message;
-        }
+    // public function throttleMessage()
+    // {
+    //     if ($this->override_throttle_message) {
+    //         return (string) $this->throttle_message;
+    //     }
 
-        return (string) Settings::get('throttle_message', 'Failed to send due to too many requests.');
-    }
+    //     return (string) Settings::get('throttle_message', 'Failed to send due to too many requests.');
+    // }
 
     // ====== EMAILING
 
@@ -404,90 +404,90 @@ class Form extends Model
      *
      * @return bool
      */
-    public function savesData()
-    {
-        if ($this->override_saves_data) {
-            return (bool) $this->saves_data;
-        }
+    // public function savesData()
+    // {
+    //     if ($this->override_saves_data) {
+    //         return (bool) $this->saves_data;
+    //     }
 
-        return (bool) Settings::get('saves_data', true);
-    }
+    //     return (bool) Settings::get('saves_data', true);
+    // }
 
     /**
      * Determine if sending notifications is enabled
      *
      * @return bool
      */
-    public function sendsNotifications()
-    {
-        if ($this->override_send_notifications) {
-            return (bool) $this->send_notifications;
-        }
+    // public function sendsNotifications()
+    // {
+    //     if ($this->override_send_notifications) {
+    //         return (bool) $this->send_notifications;
+    //     }
 
-        return (bool) Settings::get('send_notifications', true);
-    }
+    //     return (bool) Settings::get('send_notifications', true);
+    // }
 
     /**
      * Retrieve form's notification template (not empty)
      *
      * @return string
      */
-    public function notificationTemplate()
-    {
-        if ($this->override_notification_template) {
-            return (string) $this->notification_template;
-        }
+    // public function notificationTemplate()
+    // {
+    //     if ($this->override_notification_template) {
+    //         return (string) $this->notification_template;
+    //     }
 
-        return (string) Settings::get('notification_template', 'xitara.voodooforms::mail.notification');
-    }
+    //     return (string) Settings::get('notification_template', 'xitara.voodooforms::mail.notification');
+    // }
 
     /**
      * Retrieve form's notification recipients
      *
      * @return string
      */
-    public function notificationRecipients()
-    {
-        if ($this->override_notification_recipients) {
-            return (string) $this->notification_recipients;
-        }
+    // public function notificationRecipients()
+    // {
+    //     if ($this->override_notification_recipients) {
+    //         return (string) $this->notification_recipients;
+    //     }
 
-        return (string) Settings::get('notification_recipients', '');
-    }
+    //     return (string) Settings::get('notification_recipients', '');
+    // }
 
     /**
      * Determine if the form auto replies
      *
      * @return bool
      */
-    public function autoReply()
-    {
-        if ($this->override_auto_reply) {
-            return (bool) $this->auto_reply;
-        }
+    // public function autoReply()
+    // {
+    //     if ($this->override_auto_reply) {
+    //         return (bool) $this->auto_reply;
+    //     }
 
-        return (bool) Settings::get('auto_reply', false);
-    }
+    //     return (bool) Settings::get('auto_reply', false);
+    // }
 
     /**
      * Retrieve the form's auto reply email field
      *
      * @return Field|null
      */
-    public function autoReplyEmailField()
-    {
-        return $this->auto_reply_email_field;
-    }
+    // public function autoReplyEmailField()
+    // {
+    //     return $this->auto_reply_email_field;
+    // }
 
     /**
      * Retrieve the form's auto reply name field
      *
      * @return Field|null
      */
-    public function autoReplyNameField()
-    {
-        return $this->auto_reply_name_field;
-    }
+    // public function autoReplyNameField()
+    // {
+    //     return $this->auto_reply_name_field;
+    // }
 
 
     /**
@@ -495,44 +495,44 @@ class Form extends Model
      *
      * @return string
      */
-    public function autoReplyTemplate()
-    {
-        if ($this->override_auto_reply_template) {
-            return (string) $this->auto_reply_template;
-        }
+    // public function autoReplyTemplate()
+    // {
+    //     if ($this->override_auto_reply_template) {
+    //         return (string) $this->auto_reply_template;
+    //     }
 
-        return (string) Settings::get('auto_reply_template', 'xitara.voodooforms::mail.autoreply');
-    }
+    //     return (string) Settings::get('auto_reply_template', 'xitara.voodooforms::mail.autoreply');
+    // }
 
     /**
      * Determine if the form should send the reply-to header for notifications
      *
      * @return bool
      */
-    public function notifReplyto()
-    {
-        return (bool) $this->notif_replyto;
-    }
+    // public function notifReplyto()
+    // {
+    //     return (bool) $this->notif_replyto;
+    // }
 
     /**
      * Retrieve the form's reply-to email field
      *
      * @return Field|null
      */
-    public function notifReplytoEmailField()
-    {
-        return $this->notif_replyto_email_field;
-    }
+    // public function notifReplytoEmailField()
+    // {
+    //     return $this->notif_replyto_email_field;
+    // }
 
     /**
      * Retrieve the form's reply-to name field
      *
      * @return Field|null
      */
-    public function notifReplytoNameField()
-    {
-        return $this->notif_replyto_name_field;
-    }
+    // public function notifReplytoNameField()
+    // {
+    //     return $this->notif_replyto_name_field;
+    // }
 
     // ====== STYLING
 
@@ -541,14 +541,14 @@ class Form extends Model
      *
      * @return string
      */
-    public function formClass()
-    {
-        if ($this->override_form_class) {
-            return (string) $this->form_class;
-        }
+    // public function formClass()
+    // {
+    //     if ($this->override_form_class) {
+    //         return (string) $this->form_class;
+    //     }
 
-        return (string) Settings::get('form_class', 'form');
-    }
+    //     return (string) Settings::get('form_class', 'form');
+    // }
 
     /**
      * Retrieve the form's field class
@@ -556,20 +556,20 @@ class Form extends Model
      * @param Field $field
      * @return string
      */
-    public function fieldClass(Field $field = null)
-    {
-        if ($field !== null) {
-            if ($field->override_field_class) {
-                return $field->field_class;
-            }
-        }
+    // public function fieldClass(Field $field = null)
+    // {
+    //     if ($field !== null) {
+    //         if ($field->override_field_class) {
+    //             return $field->field_class;
+    //         }
+    //     }
 
-        if ($this->override_field_class) {
-            return (string) $this->field_class;
-        }
+    //     if ($this->override_field_class) {
+    //         return (string) $this->field_class;
+    //     }
 
-        return (string) Settings::get('field_class', 'form-control');
-    }
+    //     return (string) Settings::get('field_class', 'form-control');
+    // }
 
     /**
      * Retrieve the form's row class
@@ -577,20 +577,20 @@ class Form extends Model
      * @param Field $field
      * @return string
      */
-    public function rowClass(Field $field = null)
-    {
-        if ($field !== null) {
-            if ($field->override_row_class) {
-                return $field->row_class;
-            }
-        }
+    // public function rowClass(Field $field = null)
+    // {
+    //     if ($field !== null) {
+    //         if ($field->override_row_class) {
+    //             return $field->row_class;
+    //         }
+    //     }
 
-        if ($this->override_row_class) {
-            return (string) $this->row_class;
-        }
+    //     if ($this->override_row_class) {
+    //         return (string) $this->row_class;
+    //     }
 
-        return (string) Settings::get('row_class', 'row');
-    }
+    //     return (string) Settings::get('row_class', 'row');
+    // }
 
     /**
      * Retrieve the form's group class
@@ -598,20 +598,20 @@ class Form extends Model
      * @param Field $field
      * @return string
      */
-    public function groupClass(Field $field = null)
-    {
-        if ($field !== null) {
-            if ($field->override_group_class) {
-                return $field->group_class;
-            }
-        }
+    // public function groupClass(Field $field = null)
+    // {
+    //     if ($field !== null) {
+    //         if ($field->override_group_class) {
+    //             return $field->group_class;
+    //         }
+    //     }
 
-        if ($this->override_group_class) {
-            return (string) $this->group_class;
-        }
+    //     if ($this->override_group_class) {
+    //         return (string) $this->group_class;
+    //     }
 
-        return (string) Settings::get('group_class', 'form-group col-md-12');
-    }
+    //     return (string) Settings::get('group_class', 'form-group col-md-12');
+    // }
 
     /**
      * Retrieve the form's label class
@@ -619,234 +619,236 @@ class Form extends Model
      * @param Field $field
      * @return string
      */
-    public function labelClass(Field $field = null)
-    {
-        if ($field !== null) {
-            if ($field->override_label_class) {
-                return $field->label_class;
-            }
-        }
+    // public function labelClass(Field $field = null)
+    // {
+    //     if ($field !== null) {
+    //         if ($field->override_label_class) {
+    //             return $field->label_class;
+    //         }
+    //     }
 
-        if ($this->override_label_class) {
-            return (string) $this->label_class;
-        }
+    //     if ($this->override_label_class) {
+    //         return (string) $this->label_class;
+    //     }
 
-        return (string) Settings::get('label_class', 'form-label');
-    }
+    //     return (string) Settings::get('label_class', 'form-label');
+    // }
 
     /**
      * Retrieve the form's submit button class
      *
      * @return string
      */
-    public function submitClass()
-    {
-        if ($this->override_submit_class) {
-            return (string) $this->submit_class;
-        }
+    // public function submitClass()
+    // {
+    //     if ($this->override_submit_class) {
+    //         return (string) $this->submit_class;
+    //     }
 
-        return (string) Settings::get('submit_class', 'btn btn-primary');
-    }
+    //     return (string) Settings::get('submit_class', 'btn btn-primary');
+    // }
 
     /**
      * Retrieve the form's submit button text
      *
      * @return string
      */
-    public function submitText()
-    {
-        if ($this->override_submit_text) {
-            return (string) $this->submit_text;
-        }
+    // public function submitText()
+    // {
+    //     if ($this->override_submit_text) {
+    //         return (string) $this->submit_text;
+    //     }
 
-        return (string) Settings::get('submit_text', 'Submit');
-    }
+    //     return (string) Settings::get('submit_text', 'Submit');
+    // }
 
     /**
      * Determine if the form's cancel button is enabled
      *
      * @return string
      */
-    public function enableCancel()
-    {
-        if ($this->override_enable_cancel) {
-            return (bool) $this->enable_cancel;
-        }
+    // public function enableCancel()
+    // {
+    //     if ($this->override_enable_cancel) {
+    //         return (bool) $this->enable_cancel;
+    //     }
 
-        return (bool) Settings::get('enable_cancel', false);
-    }
+    //     return (bool) Settings::get('enable_cancel', false);
+    // }
 
     /**
      * Retrieve the form's cancel button class
      *
      * @return string
      */
-    public function cancelClass()
-    {
-        if ($this->override_cancel_class) {
-            return (string) $this->cancel_class;
-        }
+    // public function cancelClass()
+    // {
+    //     if ($this->override_cancel_class) {
+    //         return (string) $this->cancel_class;
+    //     }
 
-        return (string) Settings::get('cancel_class', 'btn btn-danger');
-    }
+    //     return (string) Settings::get('cancel_class', 'btn btn-danger');
+    // }
 
     /**
      * Retrieve the form's cancel button text
      *
      * @return string
      */
-    public function cancelText()
-    {
-        if ($this->override_cancel_text) {
-            return (string) $this->cancel_text;
-        }
+    // public function cancelText()
+    // {
+    //     if ($this->override_cancel_text) {
+    //         return (string) $this->cancel_text;
+    //     }
 
-        return (string) Settings::get('cancel_text', 'Cancel');
-    }
+    //     return (string) Settings::get('cancel_text', 'Cancel');
+    // }
 
     /**
      * Determine if caching is enabled
      *
      * @return bool
      */
-    public function enableCaching()
-    {
-        if ($this->override_enable_caching) {
-            return (bool) $this->enable_caching;
-        }
+    // public function enableCaching()
+    // {
+    //     if ($this->override_enable_caching) {
+    //         return (bool) $this->enable_caching;
+    //     }
 
-        return (bool) Settings::get('enable_caching', false);
-    }
+    //     return (bool) Settings::get('enable_caching', false);
+    // }
 
     /**
      * Retrieve the amount of minutes to cache the form for
      *
      * @return int
      */
-    public function cacheLifetime()
-    {
-        if ($this->override_cache_lifetime) {
-            return (int) $this->cache_lifetime;
-        }
+    // public function cacheLifetime()
+    // {
+    //     if ($this->override_cache_lifetime) {
+    //         return (int) $this->cache_lifetime;
+    //     }
 
-        return (int) Settings::get('cache_lifetime', 60);
-    }
+    //     return (int) Settings::get('cache_lifetime', 60);
+    // }
 
     /**
      * Determine what to do on success
      *
      * @return string
      */
-    public function onSuccess()
-    {
-        if ($this->override_on_success) {
-            return (string) $this->on_success;
-        }
+    // public function onSuccess()
+    // {
+    //     if ($this->override_on_success) {
+    //         return (string) $this->on_success;
+    //     }
 
-        return (string) Settings::get('on_success', 'hide');
-    }
+    //     return (string) Settings::get('on_success', 'hide');
+    // }
 
     /**
      * Retrieve the message to display in a flash on success
      *
      * @return string
      */
-    public function onSuccessMessage()
-    {
-        if ($this->override_on_success_message) {
-            return (string) $this->on_success_message;
-        }
+    // public function onSuccessMessage()
+    // {
+    //     if ($this->override_on_success_message) {
+    //         return (string) $this->on_success_message;
+    //     }
 
-        return (string) Settings::get('on_success_message', 'Successfully sent');
-    }
+    //     return (string) Settings::get('on_success_message', 'Successfully sent');
+    // }
 
     /**
      * Retrieve the URL to redirect to on success
      *
      * @return string
      */
-    public function onSuccessRedirect()
-    {
-        if ($this->override_on_success_redirect) {
-            return (string) $this->on_success_redirect;
-        }
+    // public function onSuccessRedirect()
+    // {
+    //     if ($this->override_on_success_redirect) {
+    //         return (string) $this->on_success_redirect;
+    //     }
 
-        return (string) Settings::get('on_success_redirect', '/');
-    }
+    //     return (string) Settings::get('on_success_redirect', '/');
+    // }
 
     /**
      * Retrieve the class for label success
      *
      * @return string
      */
-    public function labelSuccessClass()
-    {
-        return (string) Settings::get('label_success_class', '');
-    }
+    // public function labelSuccessClass()
+    // {
+    //     return (string) Settings::get('label_success_class', '');
+    // }
 
     /**
      * Retrieve the class for label error
      *
      * @return string
      */
-    public function labelErrorClass()
-    {
-        return (string) Settings::get('label_error_class', '');
-    }
+    // public function labelErrorClass()
+    // {
+    //     return (string) Settings::get('label_error_class', '');
+    // }
 
     /**
      * Retrieve the class for field success
      *
      * @return string
      */
-    public function fieldSuccessClass()
-    {
-        return (string) Settings::get('field_success_class', '');
-    }
+    // public function fieldSuccessClass()
+    // {
+    //     return (string) Settings::get('field_success_class', '');
+    // }
 
     /**
      * Retrieve the class for field error
      *
      * @return string
      */
-    public function fieldErrorClass()
-    {
-        return (string) Settings::get('field_error_class', '');
-    }
+    // public function fieldErrorClass()
+    // {
+    //     return (string) Settings::get('field_error_class', '');
+    // }
 
     /**
      * Retrieve the class for form success
      *
      * @return voistringd
      */
-    public function formSuccessClass()
-    {
-        return (string) Settings::get('form_success_class', '');
-    }
+    // public function formSuccessClass()
+    // {
+    //     return (string) Settings::get('form_success_class', '');
+    // }
 
     /**
      * Retrieve the class for form error
      *
      * @return string
      */
-    public function formErrorClass()
-    {
-        return (string) Settings::get('form_error_class', '');
-    }
+    // public function formErrorClass()
+    // {
+    //     return (string) Settings::get('form_error_class', '');
+    // }
 
     /**
      * Determine if at least one of the form's fields is a "file" field
      *
      * @return boolean
      */
-    public function hasFileField()
-    {
-        foreach ($this->fields as $field) {
-            if ($field->type === 'file') {
-                return true;
-            }
-        }
+    // public function hasFileField()
+    // {
+    //     foreach ($this->fields as $field) {
+    //         \Log::debug($field->name);
+    //         \Log::debug($field->type);
+    //         if ($field->type === 'file' || $field->type === 'image' || $field->type === 'dropzone') {
+    //             return true;
+    //         }
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 }

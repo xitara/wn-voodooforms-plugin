@@ -254,6 +254,7 @@ class Field extends Model
             'select' => 'xitara.voodooforms::lang.controller.options.select',
             'checkbox' => 'xitara.voodooforms::lang.controller.options.checkbox',
             'radio' => 'xitara.voodooforms::lang.controller.options.radio',
+            'taglist' => 'xitara.voodooforms::lang.controller.options.taglist',
             'url' => 'xitara.voodooforms::lang.controller.options.url',
             'tel' => 'xitara.voodooforms::lang.controller.options.tel',
             'file' => 'xitara.voodooforms::lang.controller.options.file',
@@ -261,6 +262,7 @@ class Field extends Model
             'password' => 'xitara.voodooforms::lang.controller.options.password',
             'color' => 'xitara.voodooforms::lang.controller.options.color',
             'plaintext' => 'xitara.voodooforms::lang.controller.options.plaintext',
+            // 'submit' => 'xitara.voodooforms::lang.controller.options.submit',
         ];
     }
 

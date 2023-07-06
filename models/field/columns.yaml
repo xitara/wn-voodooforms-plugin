@@ -19,13 +19,13 @@ columns:
         type: switch
         sortable: false
     created_at:
-        label: xitara.voodooforms::lang.models.all.created_at.label
+        label: xitara.voodooforms::core.created_at
         type: datetime
         width: 10%
         align: center
         sortable: false
     updated_at:
-        label: xitara.voodooforms::lang.models.all.updated_at.label
+        label: xitara.voodooforms::core.updated_at
         type: datetime
         width: 10%
         align: center

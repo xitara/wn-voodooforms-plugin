@@ -1,6 +1,22 @@
 {% if fields|length > 0 %}
-    <form action="test" class="{{ settings.form_class }} {{ settings.form_class }}-{{ __SELF__.alias }}">
+    {# {{ d(settings) }} #}
+    {# {{ d(form.options) }} #}
+    {# {{ d(fields) }} #}
+    {# <form #}
+        {# class="{{ settings.form_class }} {{ settings.form_class }}-{{ __SELF__.alias }}" #}
+        {# data-request="onSubmit" #}
+        {# data-request-files #}
+    {# > #}
+    {{ form_ajax('onSubmit', {
+        'files': true,
+        'class': settings.form_class ~ ' ' ~ settings.form_class ~ '-' ~ __SELF__.alias,
+    }) }}
+        {# {{ form_hidden('form_id', form.id) }} #}
+        {# {{ form_hidden('form_id', form.id) }} #}
         {% for key, field in fields %}
+            {# {% if field['options'] is defined %} #}
+                {# {{ d(field.options) }} #}
+            {# {% endif %} #}
             <fieldset
                 class="
                     {% if field['options'] is defined and field.options.group_class != '' %}
@@ -14,36 +30,17 @@
                 "
             >
                 {% if field is not iterable %}
-                    {# ================================================ <br> #}
-                    {# Type: {{ field.type }} <br> #}
-                    {# ================================================ <br><br> #}
                     {% if field.type != 'plaintext' %}
                         <label
                             for="{{ field.code }}"
-                            class="
-                                {% if field.options.label_class != '' %}
-                                    {{ field.options.label_class }}
-                                {% else %}
-                                    {{ settings.label_class }}
-                                {% endif %}
-                            "
+                            class="{{ field.options.label_class != '' ? 'field.options.label_class' : settings.label_class }}"
                         >{{ field.name }}</label>
                     {% endif %}
                     {% partial __SELF__ ~ '::' ~ field.type field=field %}
                 {% else %}
-                    {# ================================================ <br> #}
-                    {# Type: {{ field.0.type }} <br> #}
-                    {# Group: {{ key }} <br> #}
-                    {# ================================================ <br><br> #}
                     {% if field.0.options.is_show_description == 1 and field.0.description != '' %}
                         <legend
-                            class="
-                                {% if field.0.options.legend_class != '' %}
-                                    {{ field.0.options.legend_class }}
-                                {% else %}
-                                    {{ settings.legend_class }}
-                                {% endif %}
-                            "
+                            class="{{ field.0.options.legend_class != '' ? 'field.0.options.legend_class' : settings.legend_class }}"
                         >{{ field.0.description|strip_html }}</legend>
                     {% endif %}
 
@@ -52,7 +49,15 @@
                     {% endfor %}
                 {% endif %}
             </fieldset>
-            <hr>
         {% endfor %}
+        <fieldset class="field-group">
+            <button
+                type="submit"
+                class="{{ form.options.override_submit_class == 1 ? form.options.submit_class : settings.submit_class }}"
+            >
+                {{ form.options.override_submit_text == 1 ? form.options.submit_text : settings.submit_text }}
+            </button>
+        </fieldset>
+
     </form>
 {% endif %}

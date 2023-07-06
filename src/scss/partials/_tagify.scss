@@ -1,0 +1,32 @@
+// .tagify {
+$tags-border-color: rgb(118, 118, 118);
+$tags-hover-border-color: rgb(118, 118, 118);
+// $tags-focus-border-color: #3595f6;
+// $tag-text-color: white;
+// $tag-text-color--edit: white;
+// $tag-bg: rgb(170, 170, 170);
+// $tag-hover: #d3e2e2;
+// $tag-remove: #d39494;
+// $tagify-dd-bg-color: #222;
+// $tagify-dd-color-primary: rgb(53, 149, 246);
+// }
+
+// @import '@yaireo/tagify/dist/tagify.css';
+@import '@yaireo/tagify/src/tagify.scss';
+
+// aside#tags {
+    // margin-bottom: 1rem;
+// }
+
+// .tagify {
+//     width: 100%;
+
+//     > span {
+//         overflow: hidden;
+//     }
+// }
+
+:root {
+    // --tagify-dd-color-primary: #{$tagify-dd-color-primary};
+    // --tagify-dd-bg-color: #{$tagify-dd-bg-color};
+}

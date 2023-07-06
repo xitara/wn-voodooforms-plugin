@@ -3,15 +3,9 @@
   "app.css": "assets/css/app.css",
   "app.js": "assets/js/app.js",
   "assets/css/app.css.gz": "assets/css/app.css.gz",
-  "assets/css/breakpoints.css.gz": "assets/css/breakpoints.css.gz",
   "assets/js/app.js.LICENSE.txt": "assets/js/app.js.LICENSE.txt",
   "assets/js/app.js.gz": "assets/js/app.js.gz",
-  "breakpoints.css": "assets/css/breakpoints.css",
-  "breakpoints.js": "assets/js/breakpoints.js",
   "index.html": "index.html",
-  "index.html.gz": "index.html.gz",
-  "print.css": "assets/css/print.css",
-  "print.js": "assets/js/print.js",
   "stats.json": "stats.json",
   "stats.json.gz": "stats.json.gz"
 }

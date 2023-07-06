@@ -24,7 +24,7 @@
 >
 {% if field.options.is_show_description == 1 %}
     <aside
-        class="
+        class="{{ field.options.is_indent_description == 1 ? 'field-indent' }}
             {% if field.options.description_class != '' %}
                 {{ field.options.description_class }}
             {% else %}

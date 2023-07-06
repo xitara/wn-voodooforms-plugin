@@ -55,6 +55,15 @@ fields:
             action: hide
             field: type
             condition: value[plaintext]
+    options[is_indent_description]:
+        type: switch
+        label: xitara.voodooforms::lang.models.field.indent_description.label
+        comment: xitara.voodooforms::lang.models.field.indent_description.comment
+        span: left
+        trigger:
+            action: show
+            field: options[is_show_description]
+            condition: checked
     is_required:
         type: switch
         label: xitara.voodooforms::lang.models.field.required.label
@@ -117,6 +126,10 @@ tabs:
             comment: xitara.voodooforms::lang.models.field.options.comment
             prompt: xitara.voodooforms::lang.models.field.options.prompt
             type: repeater
+            # trigger:
+                # action: hide
+                # field: ^type
+                # condition: value[taglist]
             form:
                 fields:
                     option_label:
@@ -129,11 +142,19 @@ tabs:
                         comment: xitara.voodooforms::lang.models.field.options.fields.option_code.comment
                         span: right
                         type: text
+                        trigger:
+                            action: hide
+                            field: ^^type
+                            condition: value[taglist]
                     is_optgroup:
                         label: xitara.voodooforms::lang.models.field.options.fields.is_optgroup.label
                         comment: xitara.voodooforms::lang.models.field.options.fields.is_optgroup.comment
                         span: full
                         type: checkbox
+                        trigger:
+                            action: hide
+                            field: ^^type
+                            condition: value[taglist]
                     options:
                         label: xitara.voodooforms::lang.models.field.options.fields.options.label
                         comment: xitara.voodooforms::lang.models.field.options.fields.options.comment
@@ -153,6 +174,61 @@ tabs:
                                     label: xitara.voodooforms::lang.models.field.options.fields.options.fields.option_code.label
                                     span: right
                                     type: text
+        # Settings
+        options[field_settings]:
+            tab: xitara.voodooforms::lang.tabs.settings
+            label: xitara.voodooforms::lang.models.field.settings.label
+            comment: xitara.voodooforms::lang.models.field.settings.comment
+            prompt: xitara.voodooforms::lang.models.field.settings.prompt
+            type: repeater
+            # trigger:
+            #     action: show
+            #     field: ^type
+            #     condition: value[taglist]
+            form:
+                fields:
+                    setting_label:
+                        label: xitara.voodooforms::lang.models.field.options.fields.setting_label.label
+                        comment: xitara.voodooforms::lang.models.field.options.fields.setting_label.comment
+                        span: left
+                        type: text
+                    setting_code:
+                        label: xitara.voodooforms::lang.models.field.options.fields.setting_code.label
+                        comment: xitara.voodooforms::lang.models.field.options.fields.setting_code.comment
+                        span: right
+                        type: text
+                        # trigger:
+                            # action: hide
+                            # field: ^^type
+                            # condition: value[taglist]
+                    # is_optgroup:
+                    #     label: xitara.voodooforms::lang.models.field.options.fields.is_optgroup.label
+                    #     comment: xitara.voodooforms::lang.models.field.options.fields.is_optgroup.comment
+                    #     span: full
+                    #     type: checkbox
+                    #     # trigger:
+                    #     #     action: hide
+                    #     #     field: ^^type
+                    #     #     condition: value[taglist]
+                    # options:
+                    #     label: xitara.voodooforms::lang.models.field.options.fields.options.label
+                    #     comment: xitara.voodooforms::lang.models.field.options.fields.options.comment
+                    #     placeholder: xitara.voodooforms::lang.models.field.options.fields.options.placeholder
+                    #     type: repeater
+                    #     trigger:
+                    #         action: show
+                    #         field: is_optgroup
+                    #         condition: checked
+                    #     form:
+                    #         fields:
+                    #             option_label:
+                    #                 label: xitara.voodooforms::lang.models.field.options.fields.options.fields.option_label.label
+                    #                 span: left
+                    #                 type: text
+                    #             option_code:
+                    #                 label: xitara.voodooforms::lang.models.field.options.fields.options.fields.option_code.label
+                    #                 span: right
+                    #                 type: text
 
         # HTML Attributes
         html_attributes:

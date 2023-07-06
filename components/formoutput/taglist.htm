@@ -1,5 +1,6 @@
 <input
     id="{{ field.code }}"
+    data-tagify
     name="{{ field.code }}"
     type="text"
     {% if field.placeholder and field.placeholder != '' %}
@@ -18,9 +19,14 @@
             {{ settings.field_class }}
         {% endif %}
     "
-    {% if field.default != '' %}
-        value="{{ field.default }}"
-    {% endif %}
+    {# {% if field.default != '' %} #}
+        {# value="{{ field.default }}" #}
+    {# {% endif %} #}
+        {# value='[ #}
+    {# {% for tag in field.options.field_options %} #}
+            {# {"value": "{{ tag.option_label }}"}, #}
+    {# {% endfor %} #}
+        {# ]' #}
 >
 
 {% if field.options.is_show_description == 1 %}
@@ -36,3 +42,10 @@
         {{ field.description|raw }}
     </aside>
 {% endif %}
+
+<script>
+    var whitelist = [];
+    {% for tag in field.options.field_options %}
+        whitelist.push('{{ tag.option_label }}');
+    {% endfor %}
+</script>

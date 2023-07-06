@@ -3,6 +3,10 @@
 // @use '../abstracts/colors' as c;
 // @use '../abstracts/mixins' as m;
 
+$label-width: 30%;
+$input-width: 70%;
+$border: 1px solid #bebebe;
+
 .voodoo-form {
     margin-left: auto;
     margin-right: auto;
@@ -12,10 +16,19 @@
         margin-bottom: 0.25rem;
     }
 
+    .btn {
+        line-height: normal;
+        box-sizing: inherit;
+        border: $border;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+    }
+
     .field-group {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        padding: 1rem 0;
 
         &.type-group {
             label {
@@ -29,10 +42,14 @@
                 align-self: flex-start;
             }
         }
+
+        &[multiple] {
+            align-self: flex-start;
+        }
     }
 
     .field-label {
-        flex: 0 0 30%;
+        flex: 0 0 $label-width;
     }
 
     .field-legend {
@@ -41,8 +58,14 @@
         font-weight: bold;
     }
 
-    input {
-        flex: 0 0 70%;
+    .field {
+        line-height: normal;
+        box-sizing: inherit;
+        border: $border;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+
+        flex: 0 0 $input-width;
         width: 100%;
 
         &[type="radio"],
@@ -56,22 +79,21 @@
             }
         }
 
-    }
+        &[type="file"] {
+            padding: 0.3rem 0.5rem;
+        }
 
-    select {
-        flex: 0 0 70%;
-
-        &[multiple] {
-            align-self: flex-start
+        &.tagify {
+            padding: 0;
         }
     }
 
-    textarea {
-        flex: 0 0 70%;
-    }
-
-    aside {
+    .field-description {
         margin-top: 0.75rem;
         font-size: 0.75rem;
+
+        &.field-indent {
+            margin-left: $label-width;
+        }
     }
 }

@@ -1,4 +1,6 @@
-<?php namespace Xitara\VoodooForms\Models;
+<?php
+
+namespace Xitara\VoodooForms\Models;
 
 use Model;
 
@@ -37,7 +39,7 @@ class Submission extends Model
     /**
      * @var array Attributes to be cast to JSON
      */
-    protected $jsonable = [];
+    protected $jsonable = ['data', 'attachments'];
 
     /**
      * @var array Attributes to be appended to the API representation of the model (ex. toArray())
@@ -70,5 +72,8 @@ class Submission extends Model
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [];
-    public $attachMany = [];
+    public $attachMany = [
+        'attachment' => \System\Models\File::class,
+        'public' => false,
+    ];
 }

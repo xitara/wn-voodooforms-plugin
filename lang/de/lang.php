@@ -92,6 +92,7 @@ return [
             'select' => 'Auswahlfeld',
             'checkbox' => 'Checkbox',
             'radio' => 'Radiobox',
+            'taglist' => 'Tagliste',
             'url' => 'URL',
             'tel' => 'Telefon',
             'file' => 'Datei',
@@ -116,6 +117,10 @@ return [
                 'label' => 'Systemwert überschreiben',
                 'comment' => 'On: Überschreiben | Off: Beibehalten',
             ],
+        ],
+        'fields' => [
+            'label' => 'Felder',
+            'comment' => 'Nach dem ersten Speichern des Formulares können Felder hinzugefügt werden.',
         ],
         'settings' => [
             'enable_caching' => [
@@ -345,6 +350,10 @@ return [
                 'label' => 'Beschreibung anzeigen',
                 'comment' => 'Zeige die Beschreibung im Formular unter der Bezeichnung des Feldes an. Wird ignoriert wenn "Art" auf "Freitext" eingestellt ist.',
             ],
+            'indent_description' => [
+                'label' => 'Beschreibung einrücken',
+                'comment' => 'Rückt die Beschreibung so ein, dass der Anfang unter dem Eingabefeldfeld ist, nicht unter dem Label',
+            ],
             'required' => [
                 'label' => 'Erforderlich',
                 'comment' => 'Synonym für das Hinzufügen der "required" Validierungsregel',
@@ -371,7 +380,7 @@ return [
             ],
             'options' => [
                 'label' => 'Optionen',
-                'comment' => 'Füge hier Ihre Dropdown-, Radio- oder Checkbox-Optionen hinzu',
+                'comment' => 'Füge hier deine Dropdown-, Radio-, Taglist- oder Checkbox-Optionen hinzu',
                 'prompt' => 'Option hinzufügen',
                 'fields' => [
                     'option_label' => [
@@ -425,6 +434,12 @@ return [
                 'label' => 'In Benachrichtigungs-Mails anzeigen',
                 'comment' => 'Sollte der Wert dieses Feldes in Benachrichtigungs-E-Mails angezeigt werden?',
             ],
+        ],
+    ],
+    'component' => [
+        'formcode' => [
+            'title' => 'Formular',
+            'description' => 'Auswählen, welches Formular ausgegeben werden soll.',
         ],
     ],
 ];

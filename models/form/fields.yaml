@@ -25,13 +25,19 @@ tabs:
     fields:
         # Fields
         fields:
-            label: xitara.voodooforms::lang.tabs.fields
+            label: xitara.voodooforms::lang.models.fields.label
             span: full
             type: partial
             tab: xitara.voodooforms::lang.tabs.fields
             context:
                 - preview
                 - update
+        fields@create:
+            label: xitara.voodooforms::lang.models.fields.label
+            comment: xitara.voodooforms::lang.models.fields.comment
+            span: full
+            type: section
+            tab: xitara.voodooforms::lang.tabs.fields
 
         # Caching
         enable_caching:
@@ -156,23 +162,23 @@ tabs:
             tab: xitara.voodooforms::lang.tabs.styling
             type: checkbox
             span: right
-        options[row_class]:
-            label: xitara.voodooforms::lang.models.settings.row_class.label
-            comment: xitara.voodooforms::lang.models.settings.row_class.comment
-            tab: xitara.voodooforms::lang.tabs.styling
-            type: text
-            span: left
-            placeholder: row
-            trigger:
-                action: enable
-                field: options[override_row_class]
-                condition: checked
-        options[override_row_class]:
-            label: xitara.voodooforms::lang.models.all.override.label
-            comment: xitara.voodooforms::lang.models.all.override.comment
-            tab: xitara.voodooforms::lang.tabs.styling
-            type: checkbox
-            span: right
+        # options[row_class]:
+        #     label: xitara.voodooforms::lang.models.settings.row_class.label
+        #     comment: xitara.voodooforms::lang.models.settings.row_class.comment
+        #     tab: xitara.voodooforms::lang.tabs.styling
+        #     type: text
+        #     span: left
+        #     placeholder: row
+        #     trigger:
+        #         action: enable
+        #         field: options[override_row_class]
+        #         condition: checked
+        # options[override_row_class]:
+        #     label: xitara.voodooforms::lang.models.all.override.label
+        #     comment: xitara.voodooforms::lang.models.all.override.comment
+        #     tab: xitara.voodooforms::lang.tabs.styling
+        #     type: checkbox
+        #     span: right
         options[group_class]:
             label: xitara.voodooforms::lang.models.settings.group_class.label
             comment: xitara.voodooforms::lang.models.settings.group_class.comment
